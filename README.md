@@ -18,6 +18,7 @@
  * 解决过程： 我通过观察代码发现，直接对每一行进行分割没有考虑到空行情况。我手动在 init_students 方法中增加了 if not line: continue 的逻辑判断，跳过空行，从而确保了数据解析的稳定性。此外，针对 random.sample 可能出现的采样数量超过总数的问题，我通过 check_number_input 静态方法进行了预先拦截。
 4. 人工代码审查 (Code Review)
 以下是我对 generate_admission_ticket 方法进行的逐行代码审查，证明我已完全掌握其逻辑：
+
 def generate_admission_ticket(self, student_ids: List[str]):
     """生成准考证目录与文件：创建文件夹并在其内生成独立txt文件"""
     if not student_ids: return  # 防护性编程：如果学号列表为空则直接返回
